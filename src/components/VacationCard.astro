@@ -1,0 +1,85 @@
+---
+export interface Props {
+  img: string;
+  title: string;
+  text: string;
+}
+
+const { img, title, text } = Astro.props;
+---
+
+<div class="card col-span-1 rounded-lg filter drop-shadow-lg">
+  <a href="#">
+    <img class="w-full card-img" src={img} />
+    <div class="card-body w-full h-1/4">
+      <div
+        class="text-center text-white text-5xl card-title tracking-tight font-bold"
+      >
+        {title}
+      </div>
+      <div class="card-text text-white p-6 text-xl">
+        {text}
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  :root {
+    --primary: rgb(34, 193, 195);
+    --primary-gradient: linear-gradient(
+      90deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 154, 253, 1) 100%
+    );
+  }
+
+  .card:hover,
+  .card a:hover,
+  .card img:hover {
+  }
+
+  .card:hover img,
+  .card:hover a {
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-img {
+    filter: brightness(1);
+    transition: 0.5s ease;
+  }
+
+  .card:hover .card-body {
+    bottom: 25%;
+  }
+
+  .card:hover .card-text {
+    opacity: 1;
+    transition: 1s ease-in;
+  }
+
+  .card:hover .card-img {
+    filter: brightness(0.5);
+  }
+
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    transition: all 0.5s ease;
+  }
+
+  .card-title {
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.6),
+      0px 18px 23px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-text {
+    opacity: 0;
+  }
+</style>

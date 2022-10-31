@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,28 +8,197 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Alata"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="h-screen">
+    <header class="header">
+      <div class="responsive-bar">
+        <div class="logo">
+          <img
+            src="https://via.placeholder.com/100x100/000000/FFFFFF?Text=Logo"
+            alt=""
+          />
+        </div>
+        <div class="menu">
+          <h4>Menu</h4>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Alata";
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+  }
+
+  nav.black {
+    background-color: var(--primary);
+    height: 80px;
+    padding: 10px 50px;
+  }
+
+  .logo {
+    display: block;
+    z-index: 5;
+  }
+
+  .logo img {
+    height: 80px;
+    transition: 0.5s;
+  }
+
+  nav.black .logo img {
+    height: 60px;
+  }
+
+  nav ul {
+    float: right;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+  }
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      float: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  nav ul li {
+    list-style-type: none;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  nav ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+  }
+
+  nav.black ul {
+    height: 60px;
+  }
+
+  nav.black ul li a {
+    color: #000;
+    padding: 5px 15px;
+  }
+
+  nav ul li a:hover {
+    color: var(--primary);
+    background-color: #fff;
+  }
+
+  .header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/taniti.jpg);
+    background-size: cover;
+  }
+
+  .section {
+    padding: 100px;
+  }
+
+  .section h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+  }
+
+  .section p {
+    margin: 20px 0 0;
+    padding: 0;
+    font-size: 1.1em;
+  }
+
+  .responsive-bar {
+    display: none;
+    position: fixed;
+    z-index: 1;
+  }
+  .active {
+    display: block;
+  }
 </style>
+
+<script>
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 0 && $(this).width() > 768) {
+      $("nav").addClass("black");
+    } else {
+      $("nav").removeClass("black");
+    }
+  });
+
+  $(".menu").click(function () {
+    $("nav ul").toggleClass("active");
+  });
+
+  $(window).resize(function () {
+    if ($(this).width() > 768) {
+      $("nav ul").removeClass("active");
+    }
+  });
+</script>
