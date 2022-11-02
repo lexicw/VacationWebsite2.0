@@ -19,6 +19,20 @@ const cardData = [
 
 <Layout title="Vacation Website">
   <main>
+    <div class="relative">
+      <div class="vacation-covers">
+        <div><img src="images/taniti.jpg" class="cover-img" /></div>
+        <div><img src="images/waterfall.jpg" class="cover-img" /></div>
+        <div><img src="images/beachhut.jpg" class="cover-img" /></div>
+      </div>
+
+      <div class="vacation-slides absolute left-10 bottom-10 w-4/6">
+        <div><img src="images/beach.jpg" class="max-w-full" /></div>
+        <div><img src="images/boardwalk.jpg" class="max-w-full" /></div>
+        <div><img src="images/palmtrees.jpg" class="max-w-full" /></div>
+      </div>
+    </div>
+
     <div class="container mx-auto">
       <h1 class="mt-5 text-center">Begin Planning Your Vacation</h1>
       <div class="grid grid-cols-2 gap-3 mt-5">
@@ -86,4 +100,47 @@ const cardData = [
     gap: 1rem;
     padding: 0;
   }
+
+  .cover-img {
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .vacation-slides div {
+    margin: 10px;
+  }
 </style>
+
+<script
+  type="text/javascript"
+  src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="http://kenwheeler.github.io/slick/slick/slick-theme.css"
+/>
+
+<script>
+  $(document).ready(function () {
+    $(".vacation-covers").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: ".vacation-slides",
+    });
+    $(".vacation-slides").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: ".vacation-covers",
+      dots: true,
+      arrows: true,
+      centerMode: true,
+      centerPadding: "40px",
+      autoplay: true,
+      focusOnSelect: true,
+    });
+  });
+</script>
