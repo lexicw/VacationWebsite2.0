@@ -13,7 +13,7 @@ const { img, title, text } = Astro.props;
     <img class="w-full card-img" src={img} />
     <div class="card-body w-full h-1/4">
       <div
-        class="text-center text-white text-5xl card-title tracking-tight font-bold"
+        class="text-center text-white card-title tracking-tight font-bold"
       >
         {title}
       </div>
@@ -77,9 +77,19 @@ const { img, title, text } = Astro.props;
       0px 18px 23px rgba(0, 0, 0, 0.5);
     width: 100%;
     text-align: center;
+    font-size: calc(2rem + 1vw);
   }
 
   .card-text {
     opacity: 0;
   }
+
+@media (max-width: 768px) {
+  .card-title {
+  font-size: calc(1.075rem + 1vw);
+  }
+  .card-text {
+    display: none;
+  }
+}
 </style>

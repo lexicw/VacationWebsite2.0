@@ -1,0 +1,314 @@
+<div id="mobileNav" class="mobile-menu mobile-nav-button d-block d-md-none">
+
+    <div class="mt-3 mb-2">
+        <form method="get" action="search">
+            <div class="row mx-auto px-1 g-2">
+                <div class="form-floating position-relative">
+                    <input id="mobileSearchNav" class="form-control search-field" type="search" name="q" aria-label="Search" placeholder="Search the Website">
+                    <label for="mobileSearchNav">Search the Website</label>
+                    <button type="submit" id="btnMobileSearch" class="btn btn-main btn-search-main text-uppercase px-4 btn-lg h-100"><i class="icon-search fs-3"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+        <li>
+            <span role="button" class="mobile-dropdown rv-drop text-uppercase" aria-expanded="false" tabindex="0">Our Brands</span>
+
+                <ul class="nested">
+                    <li>
+                        <li><a href="#">Link Name</a></li>
+                    </li>
+                </ul>
+        <li>
+            <span role="button" class="mobile-dropdown text-uppercase" aria-expanded="false" tabindex="0">Dropdown</span>
+            <ul class="nested">
+                <li><a href="#">Link Name</a></li>
+            </ul>
+        </li>
+        <li>
+            <span role="button" class="mobile-dropdown text-uppercase" aria-expanded="false" tabindex="0">Dropdown</span>
+            <ul class="nested">
+                <li><a href="#">Link Name</a></li>
+            </ul>
+        </li>
+        <li>
+            <span role="button" class="mobile-dropdown text-uppercase" aria-expanded="false" tabindex="0">Dropdown</span>
+            <ul class="nested">
+                <li><a href="#">Link Name</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+
+<style>
+.mobile-menu {
+    background-color: var(--menu-bg);
+    color: var(--font);
+    padding-top: 5px;
+    width: 100%;
+    height: 100vh;
+    white-space: nowrap;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 0.5s ease-in-out, visibility 0s 0.5s;
+    transition: transform 0.5s ease-in-out, visibility 0s 0.5s;
+    z-index: 49;
+    max-width: 100%;
+}
+
+.mobile-menu-list {
+    position: relative;
+    height: 100%;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 137px;
+}
+
+.mobile-menu a {
+    color: #000;
+    display: block;
+}
+
+    .mobile-menu a:hover {
+        color: #000;
+    }
+
+.mobile-menu li {
+    list-style: none;
+    font-size: 20px;
+    margin: -1px 0px 0px -32px;
+}
+
+
+    .mobile-menu li a {
+        margin: 0px 0px 0px 0px;
+        padding: 8px 20px 8px 20px;
+        display: block;
+        color: var(--font);
+        text-decoration: none;
+        font-size: 20px;
+        border-bottom: none;
+        color: #000;
+        border: 1px solid rgba(0, 0, 0, .1);
+    }
+
+.mobile-menu-open {
+    visibility: visible;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+.mobile-dropdown {
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    color: var(--font);
+    display: block;
+    padding: 15px 0px 15px 20px; /* Top Right Bottom Left */
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    margin-top: 1px;
+    font-weight: 400;
+}
+
+    .mobile-dropdown:focus, .mobile-menu li a:focus {
+        outline: 2px solid var(--primary-light);
+        outline-offset: -2px;
+        transition: none;
+    }
+
+.mobile-down:focus {
+    outline-offset: -3px;
+    outline: 2px solid var(--primary-light);
+}
+
+
+.mobile-dropdown::after {
+    font-family: 'icomoon';
+    content: "\E923";
+    font-size: 18px;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);
+    color: var(--font);
+    display: inline-block;
+    float: right;
+    margin-right: 25px;
+    transition: 0.5s;
+    margin-top: 1px;
+}
+
+.mobile-down {
+    color: #FFF;
+    transition: ease 0.5s;
+    background-color: var(--primary);
+}
+
+    .mobile-down::after {
+        -ms-transform: rotate(-90deg); /* IE 9 */
+        -webkit-transform: rotate(-90deg); /* Safari */
+        transform: rotate(-90deg);
+        transition: 0.5s;
+        color: #FFF;
+    }
+
+/* #endregion */
+
+.nested {
+    display: none;
+    background: #FFF;
+    overflow: scroll;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+.nested-types li a {
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+
+.nested-types {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background: #FFF;
+    margin-bottom: 5px;
+}
+
+    .nested-types li {
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+
+    .nested-types::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .nested-types::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: var(--primary);
+    }
+
+    .nested-types::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin: 8px;
+        border: 2px solid transparent;
+    }
+
+.mobile-menu li.hide {
+    display: none;
+}
+
+.openbtn {
+    display: none;
+}
+
+.fixed-position {
+    overflow: hidden;
+}
+</style>
+
+<script>
+// Function to open mobile navigation
+$('#openbtn').on('keypress click', function () {
+    $("#openbtn").toggleClass("to-x");
+    $("#mobileNav").toggleClass("mobile-menu-open");
+    $('body').toggleClass("fixed-position");
+    $('.scroll-top').fadeOut();
+    $('.scroll-bottom').fadeOut();
+
+
+    var currentPage = window.location.href;
+
+    if (!currentPage.includes("RV")) {
+        if (!$('.rv-drop').hasClass("mobile-down")) {
+            $('.rv-drop').click();
+        }
+    }
+
+});
+
+// Toggles dropdown lists in mobile nav & changes aria-expanded attribute
+$('.mobile-dropdown').on('keypress click', function (e) {
+    e.preventDefault();
+
+    if ($('.mobile-dropdown').not(this).hasClass('mobile-down')) {
+        $('.mobile-dropdown').not(this).removeClass("mobile-down");
+        $('.mobile-dropdown').not(this).attr("aria-expanded", "false");
+        $('.mobile-dropdown').not(this).children(".bi").removeClass("white");
+    }
+
+    // closes all brands accordions when a main accordion is toggled
+    $('.mobile-dropdown-brands').removeClass("mobile-down-brands");
+    $('.mobile-dropdown-brands').attr("aria-expanded", "false");
+    $('.nested-brands').siblings('li').removeClass('active');
+    $('.nested-brands').slideUp();
+
+    $(this).toggleClass("mobile-down");
+    $(this).children(".bi").toggleClass("white");
+
+    $(this).siblings('.nested').slideToggle(function () {
+    }).parent('li').addClass('active')
+        .siblings('li').removeClass('active')
+        .children('.nested').slideUp();
+
+    if ($(this).hasClass('mobile-down')) {
+        $(this).attr("aria-expanded", "true");
+    } else {
+        $(this).attr("aria-expanded", "false");
+    }
+});
+
+// Toggles Brand accordions in mobile menu
+$('.mobile-dropdown-brands').on('keypress click', function (e) {
+    e.preventDefault();
+
+    if ($('.mobile-dropdown-brands').not(this).hasClass('mobile-down-brands')) {
+        $('.mobile-dropdown-brands').not(this).removeClass("mobile-down-brands");
+        $('.mobile-dropdown-brands').not(this).attr("aria-expanded", "false");
+    }
+
+    $(this).toggleClass("mobile-down-brands");
+
+    $(this).siblings('.nested-brands').slideToggle(function () {
+    }).parent('li').addClass('active')
+        .siblings('li').removeClass('active')
+        .children('.nested-brands').slideUp();
+
+    if ($(this).hasClass('mobile-down-brands')) {
+        $(this).attr("aria-expanded", "true");
+    } else {
+        $(this).attr("aria-expanded", "false");
+    }
+});
+
+// Sets focus to the mobile menu open button if the focus leaves both the site header and mobile menu while menu is active
+$('#mobileNav').on('focusout', function () {
+    var $openbtn = $('.openbtn');
+    var $sidenav = $('.mobile-menu *');
+    var $siteheader = $('.site-header *');
+    setTimeout(function () {
+        var hasFocus = (!!($openbtn.find(':focus').length > 0)) || (!!($sidenav.find(':focus').length > 0)) || (!!($siteheader.find(':focus').length > 0));
+        if ((!hasFocus) && ($('#openbtn').hasClass("to-x"))) {
+            $(".openbtn").focus();
+        }
+        else {
+        }
+    }, 0);
+});
+</script>
