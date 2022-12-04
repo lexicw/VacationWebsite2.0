@@ -4,9 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
       colors: {
-        'main-blue': '#243c5a',
+        'regal-blue': '#243c5a',
       },
-    },
 	},
 	plugins: [],
 }

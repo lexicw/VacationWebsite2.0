@@ -8,7 +8,7 @@ export interface Props {
 const { img, title, text } = Astro.props;
 ---
 
-<div class="card col-span-1 rounded-lg filter drop-shadow-lg">
+<div class="card col-span-1 rounded-lg filter drop-shadow-lg bg-gradient-to-t from-black/75 via-black/0">
   <a href="#">
     <img class="w-full card-img" src={img} />
     <div class="card-body w-full h-1/4">
@@ -48,6 +48,17 @@ const { img, title, text } = Astro.props;
     overflow: hidden;
   }
 
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-image:linear-gradient(180deg,transparent,rgba(0,0,0,1) 95%);
+  z-index:2;
+}
+
   .card-img {
     filter: brightness(1);
     transition: 0.5s ease;
@@ -70,6 +81,7 @@ const { img, title, text } = Astro.props;
     position: absolute;
     bottom: 0;
     transition: all 0.5s ease;
+    z-index: 3;
   }
 
   .card-title {
@@ -90,6 +102,9 @@ const { img, title, text } = Astro.props;
   }
   .card-text {
     display: none;
+  }
+  .card:hover .card-body {
+    bottom: 0;
   }
 }
 </style>
